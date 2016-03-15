@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <title>Alarm Clock</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <span class="pst">Pacific Standard Time</span>
+      <h1 id="time"></h1>
+      <div id="alarm">
+        <h1>ALARM IS UP!</h1>
+      </div>
+
+      <div class="alarm-set"></div>
+      <h2>Set your Alarm Clock:</h2>
+
+      <form id="alarm-form" class="form-inline">
+        <div class="form-group">
+          <label for="hour"></label>
+          <input id="hour" type="number" placeholder="12" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="minute"></label>
+          <input id="minute" type="number" placeholder="00" class="form-control">
+        </div>
+          <button class="btn btn-default" type="submit">SET</button>
+        </form>
+
+    </div>
+  </body>
+</html>
