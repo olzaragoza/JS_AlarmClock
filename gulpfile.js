@@ -8,6 +8,8 @@ var del = require('del');
 var buildProduction = utilities.env.production;
 var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var lib = require('bower-files')({
   "overrides": {
     "bootstrap": {
@@ -85,6 +87,7 @@ gulp.task('serve', function (){
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
   gulp.watch(['*.html'], ['htmlBuild']);
+  gulp.watch("scss/*.scss", ['cssBuild']);
 });
 
 gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
@@ -97,4 +100,13 @@ gulp.task('bowerBuild', ['bower'], function(){
 
 gulp.task('htmlBuild', function(){
   browserSync.reload()
+});
+
+gulp.task('cssBuild', function() {
+  return gulp.src('scss/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./build/css'))
+    .pipe(browserSync.stream());
 });
