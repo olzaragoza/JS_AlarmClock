@@ -3,7 +3,6 @@ function update() {
 }
 setInterval(update, 1000);
 
-
 $(document).ready(function(){
   $('#alarm-form').submit(function(event){
     event.preventDefault();
